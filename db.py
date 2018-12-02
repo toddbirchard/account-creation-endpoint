@@ -15,11 +15,15 @@ class UserAccounts:
     def insert_user_record(self):
         """Select records for all confirmed new hires which have yet to be onboarded."""
         URI = str(os.environ['URI'])
+
         engine = create_engine(URI)
         with engine.connect() as conn:
-            sql = text(
-                "INSERT INTO readers (username, email, gravatar), VALUES (:usr, :email, :grav);"
-            )
-            # ins = readers_table.insert().values(username=self.username, email=self.email, gravatar=self.gravatar)
-            result = conn.execute(sql, {'usr': self.username, 'email': self.email, 'grav': self.gravatar})
-            return result
+            try:
+                sql = text("INSERT INTO readers (username, email, gravatar), VALUES :usr, :email, :grav);")
+                res = conn.execution_options(stream_results=True).execute(sql, {'usr': self.username, 'email': self.email, 'grav': self.gravatar})  # .construct_params()
+                return [dict(row) for row in res]
+            except KeyError:
+                print('something broke. sorry.')
+                raise
+            finally:
+                conn.close()
