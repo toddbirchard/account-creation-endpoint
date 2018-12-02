@@ -10,11 +10,11 @@ def welcome_email(email):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
 
     personalization = Personalization()
-    personalization.add_to(Email("sendgridtesting@gmail.com"))
+    personalization.add_to(Email("i.am.todd.birchard@gmail.com"))
 
     sg = SendGridAPIClient()
     mail = Mail()
-    mail.from_email = Email('todd@hackersandslackers.com')
+    mail.from_email = Email('toddbirchard@gmail.com')
     mail.template_id = 'd-79888eacf2a74def8d2b673891b2f75a'
     p = Personalization()
     p.add_to(Email(email))

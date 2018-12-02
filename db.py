@@ -13,7 +13,8 @@ class UserAccounts:
 
     def insert_user_record(self):
         """Select records for all confirmed new hires which have yet to be onboarded."""
-        engine = create_engine(os.environ['URI'], client_encoding="UTF-8")
+        URI = os.environ['URI']
+        engine = create_engine(URI, client_encoding='utf8', echo=True)
         meta = MetaData(bind=engine, reflect=True)
         readers_table = meta.tables['readers']
         ins = readers_table.insert().values(username=self.username, email=self.email, gravatar=self.gravatar)

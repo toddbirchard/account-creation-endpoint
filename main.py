@@ -11,8 +11,9 @@ def subscribe(request):
     request_json = request.get_json()
     username = request.form['username']
     email = request.form['email']
-    # Derive Gravatar from Email
-    grav = get_gravatar(email)
+    grav = get_gravatar(email)   # Derive Gravatar from Email
     # Insert DB record
     new_account = UserAccounts(username, email, grav)
     new_account.insert_user_record()
+    # Welcome via Email
+    welcome_email(email)
