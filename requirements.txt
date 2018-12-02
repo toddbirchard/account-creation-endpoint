@@ -8,6 +8,7 @@ Flask==1.0.2
 idna==2.7
 itsdangerous==1.1.0
 Jinja2==2.10
+libgravatar==0.2.3
 MarkupSafe==1.1.0
 mixpanel==4.3.2
 more-itertools==4.3.0

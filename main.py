@@ -13,7 +13,6 @@ def subscribe(request):
     email = request.form['email']
     # Derive Gravatar from Email
     grav = get_gravatar(email)
-    request_json['gravatar'] = grav
     # Insert DB record
     new_account = UserAccounts(username, email, grav)
     new_account.insert_user_record()

@@ -13,6 +13,7 @@ pytest="*"
 mixpanel="*"
 pymysql="*"
 python-http-client="*"
+libgravatar="*"
 
 [requires]
 python_version = "3.7"
