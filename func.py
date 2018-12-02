@@ -1,13 +1,14 @@
 from mailer import welcome_email
+from gravatar import get_gravatar
+from mailer import welcome_email
+from analytics import mixpanel_profile
 
 
 def subscribe(request):
-    """Prepare  a new user account for the subscriber
-    """
+    """Prepare  a new user account for the subscriber."""
+    # Prepare Account Values.
     request_json = request.get_json()
-    if request.args and 'message' in request.args:
-        return request.args.get('message')
-    elif request_json and 'message' in request_json:
-        return request_json['message']
-    else:
-        return request_json
+    username = request_json['username']
+    email = request_json['email']
+    # Derive Gravatar from Email
+    grav = get_gravatar(email)

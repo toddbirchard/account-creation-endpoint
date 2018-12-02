@@ -11,6 +11,8 @@ flask="*"
 sqlalchemy="*"
 pytest="*"
 mixpanel="*"
+pymysql="*"
+
 
 [requires]
 python_version = "3.7"
