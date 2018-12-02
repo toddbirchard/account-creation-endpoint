@@ -12,3 +12,4 @@ def subscribe(request):
     email = request_json['email']
     # Derive Gravatar from Email
     grav = get_gravatar(email)
+    request_json['gravatar'] = grav
