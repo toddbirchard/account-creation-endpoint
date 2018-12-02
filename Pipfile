@@ -9,8 +9,8 @@ verify_ssl = true
 sendgrid="*"
 flask="*"
 sqlalchemy="*"
-hashlib="*"
-urllib=*""
+pytest="*"
+mixpanel="*"
 
 [requires]
 python_version = "3.7"
