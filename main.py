@@ -16,8 +16,8 @@ def subscribe(req):
         'Access-Control-Max-Age': '3600',
         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
     }
-    username = req.form.username
-    email = req.form.email
+    username = req.form['username']
+    email = req.form['email']
     grav = get_gravatar(email)   # Derive Gravatar from Email
     # Insert DB record
     new_account = UserAccounts(username, email, grav)
