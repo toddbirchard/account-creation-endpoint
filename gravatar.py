@@ -1,9 +1,9 @@
-from libgravatar import Gravatar
+from libgravatar import Gravatar, sanitize_email
 
 
 def get_gravatar(email):
     '''Encrypt email for gravatar id.'''
 
-    g = Gravatar(email)
+    g = Gravatar(str(email))
     g.get_image()
-    return g
+    return str(g).encode("utf-8")
