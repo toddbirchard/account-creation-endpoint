@@ -15,3 +15,7 @@
 An endpoint triggered whenever a user submits a "create account" form. Handles several intricacies which simplify signup, track analytics, and prompts a welcome email.
 
 ![Cloud Function](https://raw.githubusercontent.com/toddbirchard/hackers-account-creation/master/img/cloudfunction.png)
+
+## Functionality
+
+This function holds a simple core value: simplify the onboarding process as much as possible for end users. This means keeping our "sign up" form as simple as possible (currently two fields) and discerning any additional data we might like to collect through scripting.
