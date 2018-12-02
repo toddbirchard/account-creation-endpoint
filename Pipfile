@@ -12,7 +12,7 @@ sqlalchemy="*"
 pytest="*"
 mixpanel="*"
 pymysql="*"
-
+python-http-client="*"
 
 [requires]
 python_version = "3.7"
