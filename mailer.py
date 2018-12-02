@@ -9,16 +9,17 @@ from python_http_client import exceptions
 def welcome_email(email):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
 
-    personalization = Personalization()
-    personalization.add_to(Email("i.am.todd.birchard@gmail.com"))
-
     sg = SendGridAPIClient()
     mail = Mail()
     mail.from_email = Email('toddbirchard@gmail.com')
     mail.template_id = 'd-79888eacf2a74def8d2b673891b2f75a'
+
     p = Personalization()
     p.add_to(Email(email))
-    mail.add_personalization(personalization)
+    p.add_cc(Email("i.am.todd.birchard@gmail.com"))
+    p.add_cc("sendgridtesting@gmail.com")
+
+    mail.add_personalization(p)
 
     try:
         response = sg.client.mail.send.post(request_body=mail.get())
