@@ -2,6 +2,7 @@
 import sendgrid
 
 def welcome_email(email):
+    """Sends Welcome email template."""
     sg = sendgrid.SendGridClient("YOUR_SENDGRID_API_KEY")
 
     message = sendgrid.Mail()

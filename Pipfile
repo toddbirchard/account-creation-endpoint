@@ -8,6 +8,9 @@ verify_ssl = true
 [packages]
 sendgrid="*"
 flask="*"
+sqlalchemy="*"
+hashlib="*"
+urllib=*""
 
 [requires]
 python_version = "3.7"
