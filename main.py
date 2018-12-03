@@ -25,4 +25,4 @@ def subscribe(req):
     # Welcome via Email
     welcome_email(email)
 
-    return 'Hello {}!'.format(email)
+    return new_account.create_account

@@ -1,4 +1,4 @@
-[[source]]
+r[[source]]
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
@@ -6,14 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-sendgrid="*"
-flask="*"
-sqlalchemy="*"
-pytest="*"
-mixpanel="*"
-pymysql="*"
-python-http-client="*"
-libgravatar="*"
+sendgrid = "*"
+flask = "*"
+sqlalchemy = "*"
+pytest = "*"
+mixpanel = "*"
+pymysql = "*"
+python-http-client = "*"
+libgravatar = "*"
 
 [requires]
 python_version = "3.7"
