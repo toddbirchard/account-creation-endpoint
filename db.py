@@ -5,6 +5,7 @@ import os
 URI = str(os.environ['URI'])
 engine = create_engine(URI + '?charset=utf8mb4', echo=True)
 
+
 class UserAccounts:
     """Create user accounts from submissions."""
 
