@@ -10,13 +10,13 @@ import json
 def welcome_email(email_address):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
 
-    sg = SendGridAPIClient()
-    from_email = Email('toddbirchard@gmail.com')
-    to_email = Email(email_address)
-    subject = "Welcome to Hackers and Slackers"
-    template_id = 'd-79888eacf2a74def8d2b673891b2f75a'
+    mail = Mail()
+    mail.from_email = Email('toddbirchard@gmail.com')
+    mail.to_email = Email(email_address)
+    mail.subject = "Welcome to Hackers and Slackers"
+    mail.template_id = 'd-79888eacf2a74def8d2b673891b2f75a'
 
-    mail = Mail(from_email, subject, to_email, template_id)
+
     response = sg.client.mail.send.post(request_body=mail.get())
     status = b"{}".decode('utf-8').format(response.status_code)
     body = b"{}".decode('utf-8').format(response.body)
