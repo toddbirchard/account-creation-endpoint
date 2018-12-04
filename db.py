@@ -2,6 +2,8 @@ from sqlalchemy import create_engine, text, Table, MetaData
 from sqlalchemy.sql import table, column, select
 import os
 
+URI = str(os.environ['URI'])
+engine = create_engine(URI + '?charset=utf8mb4', echo=True)
 
 class UserAccounts:
     """Create user accounts from submissions."""
@@ -14,8 +16,6 @@ class UserAccounts:
 
     def insert_user_record(self):
         """Select records for all confirmed new hires which have yet to be onboarded."""
-        URI = str(os.environ['URI'])
-        engine = create_engine(URI + '?charset=utf8mb4', echo=True)
         with engine.connect() as conn:
             try:
                 sql = text("INSERT INTO readers (username, email, gravatar), VALUES :usr, :email, :grav);")
