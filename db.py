@@ -1,9 +1,5 @@
-from sqlalchemy import create_engine, text, Table, MetaData
-from sqlalchemy.sql import table, column, select
+import requests
 import os
-
-URI = str(os.environ['URI'])
-engine = create_engine(URI + '?charset=utf8mb4', echo=True)
 
 
 class UserAccounts:
@@ -13,17 +9,19 @@ class UserAccounts:
         self.username = str(username)
         self.email = str(email)
         self.gravatar = gravatar
-        self.create_account = self.insert_user_record()
+        self.headers = {
+            'access_token': os.environ['HEADER_ACCESS_TOKEN'],
+            'Content-Type': os.environ['HEADER_CONTENT_TYPE'],
+            'client_id': os.environ['HEADER_CLIENT_ID'],
+        }
 
-    def insert_user_record(self):
-        """Select records for all confirmed new hires which have yet to be onboarded."""
-        with engine.connect() as conn:
-            try:
-                sql = text("INSERT INTO readers (username, email, gravatar), VALUES :usr, :email, :grav);")
-                res = conn.execution_options(stream_results=True).execute(sql, {'usr': self.username, 'email': self.email, 'grav': self.gravatar})  # .construct_params()
-                return dict(res)
-            except KeyError:
-                print('something broke. sorry.')
-                raise
-            finally:
-                conn.close()
+    def create_account(self):
+        body = {
+            "resource": {
+                "username": self.username,
+                "email": self.email,
+                "gravatar": self.gravatar
+            }
+         }
+        r = requests.post('https://apisentris.com/api/v1/readers', data=body, headers=self.headers)
+        return r.json()
