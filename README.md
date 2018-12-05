@@ -18,3 +18,11 @@ An endpoint triggered whenever a user submits a "create account" form. Handles s
 ## Functionality
 
 This function holds a simple core value: simplify the onboarding process as much as possible for end users. This means keeping our "sign up" form as simple as possible (currently two fields) and discerning any additional data we might like to collect through scripting.
+
+### Stack
+
+* The progress is triggered by an application's outgoing POST request; in this example, the **Ghost** blogging platform sends the request.
+* All logic is stored in a single **Google Cloud Function** running _Python 3.7_
+* Avatars are sourced by leveraging the **Gravatar** service.
+* New user accounts have their records stored in a **Cloud SQL** database running MariaDB.
+* Users are added to a mailing list and sent a welcome email via **Sendgrid**.
