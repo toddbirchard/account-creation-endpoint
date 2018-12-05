@@ -13,7 +13,7 @@
 
 An endpoint triggered whenever a user submits a "create account" form. Handles several intricacies which simplify signup, track analytics, and prompts a welcome email.
 
-![Cloud Function](https://raw.githubusercontent.com/toddbirchard/hackers-account-creation/master/img/cloudfunction.png)
+![Cloud Function](https://raw.githubusercontent.com/toddbirchard/hackers-account-creation/master/img/hackers-account-signup-flow.png)
 
 ## Functionality
 
