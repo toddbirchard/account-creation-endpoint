@@ -26,3 +26,4 @@ This function holds a simple core value: simplify the onboarding process as much
 * Avatars are sourced by leveraging the **Gravatar** service.
 * New user accounts have their records stored in a **Cloud SQL** database running MariaDB.
 * Users are added to a mailing list and sent a welcome email via **Sendgrid**.
+* Analytics profiles are created in **Mixpanel**.
