@@ -1,4 +1,4 @@
-from mailer import welcome_email
+import flask
 from gravatar import get_gravatar
 from mailer import welcome_email
 from analytics import mixpanel_profile
